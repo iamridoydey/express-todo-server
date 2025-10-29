@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/server.ts","./src/config/config.ts","./src/controllers/itemController.ts","./src/middleWares/errorHandler.ts","./src/models/items.ts","./src/routes/itemRoutes.ts"],"version":"5.9.3"}

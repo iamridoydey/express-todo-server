@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Home page route
 app.get("/", (req: Request, res: Response)=>{
-  res.status(200).json({message: "Hello Prite Dey from express todos 👋"})
+  res.status(200).json({message: "Hello DevOps enthusiast from express todos 👋"})
 })
 
 // Routes

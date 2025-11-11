@@ -27,7 +27,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
     
     - name: "Build Docker Image"
-      run: docker build -t express-todo-server .
+      run: docker build -t iamridoydey/express-todo-server .
     
-    - name: "Push The Docker Image to Dockerhub"
+    - name: "Push The Image to Dockerhub"
       run: docker push iamridoydey/express-todo-server:latest

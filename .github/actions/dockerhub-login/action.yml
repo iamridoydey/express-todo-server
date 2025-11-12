@@ -1,4 +1,5 @@
 name: "Docker build and push"
+description: "Reusable action for login to docker hub"
 inputs:
   dockerhub_username:
     description: "Docker hub username"

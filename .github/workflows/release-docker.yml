@@ -1,28 +1,27 @@
 name: "Release Docker Container"
+
 on:
   push:
-    branches:
-    - "main"
+    branches: ["main"]
   pull_request:
-    branches:
-    - "main"
+    branches: ["main"]
   workflow_dispatch:
 
 jobs:
-  clone-repo:
-    name: "Clone the repository"
+  build-and-push:
     runs-on: ubuntu-24.04
     steps:
-    - name: "checkout"
+    - name: Checkout
       uses: actions/checkout@v5
-    
-    - name: "Docker hub access"
-      uses: "../actions/dockerhub-login"
+
+    - name: Docker Hub Login
+      uses: ./github/actions/dockerhub-login
       with:
-        dockerhub_username: ${{vars.DOCKERHUB_USERNAME}}
-        dockerhub_password: ${{secrets.DOCKERHUB_TOKEN}}
-    - name: "Build Docker Image"
-      run: docker build -t iamridoydey/express-todo-server .
-    
-    - name: "Push The Image to Dockerhub"
+        dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+        dockerhub_password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Build Docker Image
+      run: docker build -t iamridoydey/express-todo-server:latest .
+
+    - name: Push Docker Image
       run: docker push iamridoydey/express-todo-server:latest
